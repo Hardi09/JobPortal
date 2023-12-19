@@ -1,0 +1,64 @@
+﻿@model ProjectJobPortalSystem.Models.JobsModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="alert alert-primary col-md-8">Edit Job Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JobTitle" class="control-label"></label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Website" class="control-label"></label>
+                <input asp-for="Website" class="form-control" />
+                <span asp-validation-for="Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeofJob" class="control-label"></label>
+                <select asp-for="TypeofJob" asp-items="ViewBag.JobTypes" class="form-select">
+                    <option value="">Select Job Type</option>
+                </select>
+                <span asp-validation-for="TypeofJob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryInfo" class="control-label"></label>
+                <input asp-for="SalaryInfo" class="form-control" />
+                <span asp-validation-for="SalaryInfo" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label class="control-label"> EmployerEmail</label>
+                <input readonly value="@ViewBag.EmployerName" class="form-control" />
+                <input asp-for="EmployerId" hidden class="form-control" />
+                <span asp-validation-for="EmployerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" /> |
+                <a asp-controller="Employer" asp-action="Details" asp-route-id="@Model.EmployerId" class="btn btn-danger">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

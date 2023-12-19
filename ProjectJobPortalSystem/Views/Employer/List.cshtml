@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProjectJobPortalSystem.Models.EmployerModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+@if (!Model.Any() || Model == null)
+{
+    <h2 class="alert alert-danger">No Employer Available</h2>
+}
+else
+{
+<h1 class="alert alert-primary">List of all Employers</h1>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyProfile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th width="500"> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyProfile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+                <td colspan="4" style="justify-content: center;">
+
+                    <a asp-controller="Employer" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary" style="margin-right: 10px;">Details</a>
+                    <a asp-controller="Employer" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table> 
+}<br />
+<p>
+    
+    <a asp-controller="Home" asp-action="Index_Admin" class="btn btn-danger">Home </a>
+</p>

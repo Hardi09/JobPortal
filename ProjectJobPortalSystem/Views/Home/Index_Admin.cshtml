@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            background: url("/images/back_jobs.jpg") center/cover no-repeat;
+            height: 300px;
+            position: relative;
+        }
+
+            .jumbotron .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            .jumbotron h1 {
+                color: white;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+        .titleWC {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .module-container {
+            padding-bottom: 50px;
+        }
+
+        .module {
+            background-color: antiquewhite;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .module:hover {
+                transform: translateY(-5px);
+                background-color: coral;
+                color: black;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+                .module:hover p {
+                    color: white;
+                }
+
+            .module h3 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .module p {
+                color: #6c757d;
+                margin-bottom: 20px;
+            }
+
+            .module .btn {
+                font-size: 1rem;
+                padding: 10px 30px;
+                border-radius: 20px;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <div class="overlay"></div>
+        <h1 class="display-2">Job Portal System</h1>
+        <h2 class="titleWC">Hello Admin  @User.Identity?.Name! ..</h2>
+    </div>
+
+    <div class="container module-container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="module">
+                    <h3>View & Manage all Jobs</h3>
+                    <p>View All jobs with option of delete and details of each job.. Details of each job includes job deatils, Employer details and list of jobseekers details who already applied for that jobs</p>
+                    <a href="/Jobs/List" class="btn btn-primary btn-lg">View Jobs</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="module">
+                    <h3>View & Manage all Employers</h3>
+                    <p>View List of all Employers with option of delete and details. Details of each employer includes personal information of that employer with list of all job which are posted by that employer.</p>
+                    <a href="/Employer/List" class="btn btn-primary btn-lg">View Employers</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mx-auto">
+                <div class="module">
+                    <h3>View & Manage all Job Seekers</h3>
+                    <p>View List all all Jobseekers with options of delete jobseeker of view details..Details of job seeker includes personal information of that jobseeker with all applied job of that job seeker .</p>
+                    <a href="/JobSeeker/List" class="btn btn-primary btn-lg">View Job Seekers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
